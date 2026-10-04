@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusNetwork - Le Renouveau du Multijoueur Nintendo Wii U & 3DS</title>
+    <title>Newtendo Online - Le Multijoueur Libre Wii U & 3DS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,14 +11,13 @@
             theme: {
                 extend: {
                     colors: {
-                        nexus: {
-                            dark: '#0a0b10',
-                            card: '#131520',
-                            border: '#1e2235',
+                        newtendo: {
+                            dark: '#030712',
+                            card: '#0b0f19',
+                            border: '#1f293d',
+                            indigo: '#4f46e5',
                             purple: '#8b5cf6',
-                            cyan: '#06b6d4',
-                            blue: '#3b82f6',
-                            pink: '#ec4899',
+                            accent: '#6366f1'
                         }
                     },
                     fontFamily: {
@@ -32,664 +31,565 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background-color: #0a0b10;
+            background-color: #030712;
             color: #f3f4f6;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
-        .neon-glow-purple {
-            box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+        .gradient-brand {
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
         }
-        .neon-glow-cyan {
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .neon-text-cyan {
-            text-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+        .glass-card {
+            background: rgba(11, 15, 25, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(99, 102, 241, 0.15);
         }
-        .neon-text-purple {
-            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
         }
-        .glass-panel {
-            background: rgba(19, 21, 32, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .glow-effect {
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.2);
         }
-        .hero-bg {
-            background: radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.15) 0%, rgba(6, 182, 212, 0.05) 40%, transparent 70%);
-        }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0a0b10;
+            background: #030712;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1e2235;
+            background: #1f293d;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #8b5cf6;
+            background: #4f46e5;
         }
     </style>
 </head>
-<body class="bg-nexus-dark min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black">
+<body class="bg-newtendo-dark min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-nexus-border">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-newtendo-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center neon-glow-cyan">
-                    <i class="fa-solid fa-gamepad text-white text-xl"></i>
+            <a href="#accueil" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center glow-effect group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-cube text-white text-lg"></i>
                 </div>
-                <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-                    NEXUS<span class="text-white">NETWORK</span>
+                <span class="text-xl font-extrabold tracking-wider text-white">
+                    NEWTENDO<span class="gradient-text">.ONLINE</span>
                 </span>
-            </div>
+            </a>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-                <a href="#accueil" class="hover:text-cyan-400 transition-colors">Accueil</a>
-                <a href="#statut" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+            <!-- Streamlined Navigation Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#accueil" class="hover:text-indigo-400 transition-colors">Accueil</a>
+                <a href="#private-online" class="hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-network-wired text-indigo-400"></i> Private Online
+                </a>
+                <a href="#emulateur" class="hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-desktop text-purple-400"></i> Emulateur
+                </a>
+                <a href="#statut" class="hover:text-indigo-400 transition-colors flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Statut
                 </a>
-                <a href="#guides" class="hover:text-cyan-400 transition-colors">Guides</a>
-                <a href="#actualites" class="hover:text-cyan-400 transition-colors">Actualités</a>
-                <a href="#communaute" class="hover:text-cyan-400 transition-colors">Communauté</a>
             </nav>
 
             <div class="hidden md:flex items-center space-x-4">
-                <a href="#guides" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm hover:opacity-95 transition-all shadow-lg neon-glow-cyan">
-                    <i class="fa-solid fa-rocket mr-2"></i> Commencer
-                </a>
+                <button onclick="openAccountModal()" class="px-5 py-2.5 rounded-xl gradient-brand text-white font-semibold text-sm hover:opacity-95 transition-all glow-effect shadow-lg">
+                    <i class="fa-solid fa-user-circle mr-2"></i> Mon Compte
+                </button>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
         </div>
 
         <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-nexus-border px-4 pt-2 pb-6 space-y-3">
-            <a href="#accueil" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium">Accueil</a>
-            <a href="#statut" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium">Statut des serveurs</a>
-            <a href="#guides" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium">Guides d'installation</a>
-            <a href="#actualites" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium">Actualités</a>
-            <a href="#communaute" class="block py-2 text-gray-300 hover:text-cyan-400 font-medium">Communauté & Discord</a>
-            <div class="pt-2">
-                <a href="#guides" class="w-full block text-center px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm neon-glow-cyan">
-                    Commencer
-                </a>
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-newtendo-border px-6 pt-3 pb-6 space-y-3">
+            <a href="#accueil" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Accueil</a>
+            <a href="#private-online" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium flex items-center gap-2">
+                <i class="fa-solid fa-network-wired text-indigo-400"></i> Private Online
+            </a>
+            <a href="#emulateur" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium flex items-center gap-2">
+                <i class="fa-solid fa-desktop text-purple-400"></i> Emulateur
+            </a>
+            <a href="#statut" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Statut des serveurs</a>
+            <div class="pt-3">
+                <button onclick="openAccountModal()" class="w-full py-3 rounded-xl gradient-brand text-white font-semibold text-sm shadow-lg text-center">
+                    Mon Compte / Connexion
+                </button>
             </div>
         </div>
     </header>
 
-    <section id="accueil" class="relative pt-32 pb-20 md:pt-48 md:pb-32 hero-bg overflow-hidden">
-        <!-- Floating neon background decorations -->
-        <div class="absolute top-1/4 left-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="accueil" class="relative pt-36 pb-24 md:pt-48 md:pb-36 overflow-hidden">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-cyan-400 text-xs md:text-sm font-semibold mb-6 animate-bounce">
-                    <i class="fa-solid fa-sparkles"></i>
-                    <span>Alternative libre et gratuite aux serveurs Nintendo Network</span>
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card border border-indigo-500/30 text-indigo-300 text-xs md:text-sm font-semibold mb-6 shadow-inner">
+                    <i class="fa-solid fa-bolt text-indigo-400"></i>
+                    <span>La relève libre et open-source des services Nintendo Wii U & 3DS</span>
                 </div>
                 
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8">
-                    Rendez vie au multijoueur de vos <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent neon-text-cyan">consoles Nintendo</span> préférées
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+                    Le multijoueur redéfini pour vos <span class="gradient-text">consoles et émulateurs</span>
                 </h1>
                 
-                <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                    NexusNetwork redéfinit l'expérience en ligne sur <span class="text-cyan-400 font-semibold">Wii U</span> et <span class="text-purple-400 font-semibold">3DS</span>. Rejoignez des milliers de joueurs, retrouvez vos amis, jouez en ligne et revivez vos jeux favoris.
+                <p class="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Newtendo Online restaure l'intégralité des fonctionnalités en ligne (Matchmaking, Amis, MiiVerse) avec une infrastructure moderne, ultra-rapide et totalement gratuite.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#guides" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-base hover:opacity-95 transition-all shadow-lg neon-glow-cyan flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-download"></i> Configurer maintenant
+                    <a href="#private-online" class="w-full sm:w-auto px-8 py-4 rounded-xl gradient-brand text-white font-bold text-base hover:opacity-95 transition-all glow-effect flex items-center justify-center gap-3 shadow-lg">
+                        <i class="fa-solid fa-gamepad"></i> Configurer Private Online
                     </a>
-                    <a href="#statut" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-white font-bold text-base hover:border-cyan-500/50 transition-all flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-server text-cyan-400"></i> État des serveurs
+                    <a href="#emulateur" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-bold text-base hover:border-indigo-500/50 transition-all flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-laptop-code text-indigo-400"></i> Guide Émulateurs
                     </a>
                 </div>
 
-                <!-- Stats counter snippet -->
-                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-nexus-border">
-                    <div class="glass-panel p-6 rounded-2xl border border-nexus-border">
-                        <div class="text-3xl md:text-4xl font-extrabold text-cyan-400 mb-1">48,250+</div>
-                        <div class="text-sm text-gray-400">Joueurs Inscrits</div>
+                <!-- Quick Stats Grid -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-newtendo-border">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-3xl md:text-4xl font-extrabold gradient-text mb-1">52,400+</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Joueurs Enregistrés</div>
                     </div>
-                    <div class="glass-panel p-6 rounded-2xl border border-nexus-border">
-                        <div class="text-3xl md:text-4xl font-extrabold text-purple-400 mb-1">1,420</div>
-                        <div class="text-sm text-gray-400">Joueurs en Ligne</div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-3xl md:text-4xl font-extrabold text-indigo-400 mb-1">1,850</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">En Ligne Actuellement</div>
                     </div>
-                    <div class="glass-panel p-6 rounded-2xl border border-nexus-border">
-                        <div class="text-3xl md:text-4xl font-extrabold text-emerald-400 mb-1">99.9%</div>
-                        <div class="text-sm text-gray-400">Disponibilité</div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-3xl md:text-4xl font-extrabold text-purple-400 mb-1">99.98%</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Disponibilité Uptime</div>
                     </div>
-                    <div class="glass-panel p-6 rounded-2xl border border-nexus-border">
-                        <div class="text-3xl md:text-4xl font-extrabold text-pink-400 mb-1">120+</div>
-                        <div class="text-sm text-gray-400">Jeux Supportés</div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-3xl md:text-4xl font-extrabold text-emerald-400 mb-1">140+</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Jeux Supportés</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="statut" class="py-20 bg-nexus-dark/80 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <div class="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-2">Temps Réel</div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">État des Services</h2>
-                </div>
-                <div class="mt-4 md:mt-0 flex items-center space-x-3">
-                    <!-- Platform Switcher Tabs -->
-                    <div class="glass-panel p-1.5 rounded-xl flex space-x-1">
-                        <button onclick="switchPlatform('wiiu')" id="tab-wiiu" class="px-5 py-2 rounded-lg text-sm font-bold bg-cyan-500 text-black transition-all shadow-md">
-                            <i class="fa-brands fa-wii mr-1.5"></i> Wii U
-                        </button>
-                        <button onclick="switchPlatform('3ds')" id="tab-3ds" class="px-5 py-2 rounded-lg text-sm font-bold text-gray-400 hover:text-white transition-all">
-                            <i class="fa-solid fa-gamepad mr-1.5"></i> 3DS
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wii U Services Grid -->
-            <div id="services-wiiu" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-                            <i class="fa-solid fa-shield-halved text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">Authentification (NEX)</h3>
-                    <p class="text-sm text-gray-400 mb-4">Connexion au compte et gestion des sessions.</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 18ms</span>
-                        <span class="text-emerald-400 font-medium">100% stable</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
-                            <i class="fa-solid fa-users text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">Liste d'amis (Ami)</h3>
-                    <p class="text-sm text-gray-400 mb-4">Notifications, présence et gestion des amis.</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 22ms</span>
-                        <span class="text-emerald-400 font-medium">100% stable</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
-                            <i class="fa-solid fa-network-wired text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">Matchmaking (NEX)</h3>
-                    <p class="text-sm text-gray-400 mb-4">Salons de jeux et parties en ligne (MK8, Splatoon).</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 25ms</span>
-                        <span class="text-emerald-400 font-medium">99.8% stable</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400">
-                            <i class="fa-solid fa-globe text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">Services Web (Miiverse)</h3>
-                    <p class="text-sm text-gray-400 mb-4">Navigateur web communautaire et partages.</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 31ms</span>
-                        <span class="text-emerald-400 font-medium">99.9% stable</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3DS Services Grid (Hidden by default) -->
-            <div id="services-3ds" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-                            <i class="fa-solid fa-shield-halved text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">3DS Auth Server</h3>
-                    <p class="text-sm text-gray-400 mb-4">Connexion NNID pour Nintendo 3DS / 2DS.</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 20ms</span>
-                        <span class="text-emerald-400 font-medium">100% stable</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
-                            <i class="fa-solid fa-wifi text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">SpotPass / StreetPass</h3>
-                    <p class="text-sm text-gray-400 mb-4">Échange de données et contenus additionnels.</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 28ms</span>
-                        <span class="text-emerald-400 font-medium">99.7% stable</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
-                            <i class="fa-solid fa-gamepad text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">Multiplayer 3DS (MK7, etc.)</h3>
-                    <p class="text-sm text-gray-400 mb-4">Matchmaking et serveurs de jeux dédiés.</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 24ms</span>
-                        <span class="text-emerald-400 font-medium">100% stable</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl border border-nexus-border hover:border-cyan-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400">
-                            <i class="fa-solid fa-store text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span> Maintenance
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-lg text-white mb-1">eShop alternatif</h3>
-                    <p class="text-sm text-gray-400 mb-4">Téléchargement de patchs et homebrews.</p>
-                    <div class="flex justify-between text-xs text-gray-500 pt-3 border-t border-nexus-border">
-                        <span>Latence: 45ms</span>
-                        <span class="text-amber-400 font-medium">Mise à jour</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="guides" class="py-20 bg-nexus-dark">
+    <section id="private-online" class="py-24 bg-newtendo-dark/90 relative border-t border-newtendo-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-2">Guide d'installation</div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Comment se connecter à NexusNetwork ?</h2>
-                <p class="text-gray-400">Suivez notre guide rapide pour configurer votre console Wii U ou 3DS en quelques minutes à l'aide de Aroma, Luma3DS ou de la configuration DNS.</p>
+                <div class="text-indigo-400 font-semibold text-sm uppercase tracking-wider mb-2">Matériel & Consoles</div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Private Online</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Redonnez vie à votre Nintendo Wii U ou Nintendo 3DS physique grâce à nos correctifs DNS et homebrews dédiés.</p>
             </div>
 
-            <!-- Console Selector Tabs -->
-            <div class="flex justify-center mb-10">
-                <div class="glass-panel p-1.5 rounded-2xl flex space-x-2">
-                    <button onclick="switchGuide('wiiu')" id="guide-tab-wiiu" class="px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-cyan-500 to-blue-600 text-white transition-all shadow-md">
-                        <i class="fa-brands fa-wii mr-2"></i> Guide Wii U (Aroma / DNS)
-                    </button>
-                    <button onclick="switchGuide('3ds')" id="guide-tab-3ds" class="px-6 py-3 rounded-xl text-sm font-bold text-gray-400 hover:text-white transition-all">
-                        <i class="fa-solid fa-gamepad mr-2"></i> Guide 3DS (Luma3DS / Nimbus)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Wii U Guide Content -->
-            <div id="guide-content-wiiu" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-panel p-8 rounded-2xl border border-nexus-border relative flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Wii U Card -->
+                <div class="glass-card p-8 sm:p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div>
-                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold text-lg mb-6">1</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Prérequis Console</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Votre console Wii U doit disposer d'un accès homebrew fonctionnel (Aroma ou Tiramisu recommandé).</p>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-2xl gradient-brand flex items-center justify-center text-white text-2xl shadow-md">
+                                <i class="fa-brands fa-wii"></i>
+                            </div>
+                            <span class="px-3.5 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-bold border border-indigo-500/20">Wii U / Aroma</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Nintendo Wii U</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Connectez votre console modifiée avec Aroma ou Tiramisu. Profitez de Mario Kart 8, Splatoon, Super Smash Bros et des listes d'amis en temps réel.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-indigo-400"></i> Configuration par DNS ou Plugin Aroma
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-indigo-400"></i> Support complet du Matchmaking NEX
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-indigo-400"></i> Gestion des profils et comptes Newtendo ID
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-xs text-cyan-400 font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check"></i> Étape essentielle
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl border border-nexus-border relative flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-lg mb-6">2</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Configuration du DNS</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Modifiez vos paramètres réseau internet et entrez l'adresse IP DNS primaire de NexusNetwork : <code class="bg-nexus-dark px-2 py-1 rounded text-cyan-400 font-mono">168.235.051.023</code></p>
-                    </div>
-                    <div class="text-xs text-purple-400 font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-server"></i> Redirection auto
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl border border-nexus-border relative flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-lg mb-6">3</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Création de Compte</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Créez votre Nexus ID directement depuis notre portail d'inscription et liez-le à votre console.</p>
-                    </div>
-                    <button onclick="openModal()" class="w-full py-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20 font-semibold text-sm transition-colors">
-                        Créer mon ID
+                    <button onclick="openGuideModal('wiiu')" class="w-full py-3.5 rounded-xl gradient-brand text-white font-bold text-sm hover:opacity-95 transition-all shadow-md">
+                        Voir le Guide Wii U
                     </button>
                 </div>
-            </div>
 
-            <!-- 3DS Guide Content (Hidden by default) -->
-            <div id="guide-content-3ds" class="hidden max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-panel p-8 rounded-2xl border border-nexus-border relative flex flex-col justify-between">
+                <!-- 3DS Card -->
+                <div class="glass-card p-8 sm:p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
                     <div>
-                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold text-lg mb-6">1</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Luma3DS installé</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Assurez-vous que votre 3DS dispose de Luma3DS à jour et d'un gestionnaire de CIA (FBI).</p>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white text-2xl shadow-md">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <span class="px-3.5 py-1.5 rounded-full bg-purple-500/10 text-purple-300 text-xs font-bold border border-purple-500/20">3DS / 2DS / Luma</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Nintendo 3DS / 2DS</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Utilisez l'application Nimbus ou l'injection Luma pour basculer instantanément sur les serveurs Newtendo. Reprenez vos parties de Mario Kart 7 et Pokémon en ligne.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400"></i> Installation simple via fichier .CIA
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400"></i> Compatible SpotPass & StreetPass virtuel
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-purple-400"></i> Compatible Old 3DS, New 3DS et 2DS
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-xs text-cyan-400 font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check"></i> CFW requis
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl border border-nexus-border relative flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-lg mb-6">2</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Installer l'application Nimbus</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Téléchargez et installez l'application de basculement de serveurs <span class="text-purple-400 font-semibold">Nimbus.cia</span> sur votre console.</p>
-                    </div>
-                    <div class="text-xs text-purple-400 font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-download"></i> CIA dispo
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl border border-nexus-border relative flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-lg mb-6">3</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Activer NexusNetwork</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Lancez Nimbus, sélectionnez NexusNetwork comme réseau principal et profitez du multijoueur en ligne.</p>
-                    </div>
-                    <button onclick="openModal()" class="w-full py-2.5 rounded-xl bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 font-semibold text-sm transition-colors">
-                        Rejoindre la communauté
+                    <button onclick="openGuideModal('3ds')" class="w-full py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition-all shadow-md">
+                        Voir le Guide 3DS
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="actualites" class="py-20 bg-nexus-dark/50 relative">
+    <section id="emulateur" class="py-24 bg-newtendo-dark relative border-t border-newtendo-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-purple-400 font-semibold text-sm uppercase tracking-wider mb-2">PC & Ordinateurs</div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Émulateur & PC Setup</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Jouez en haute résolution sur PC en connectant vos émulateurs favoris directement à notre réseau privé sécurisé.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Cemu Emulator -->
+                <div class="glass-card p-8 rounded-3xl border border-newtendo-border flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-desktop"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Cemu (Wii U)</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Cemu Emulator</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Configurez vos identifiants Newtendo dans Cemu pour activer le multijoueur en ligne à 4K / 60 FPS avec des joueurs sur console réelle et émulateur.
+                        </p>
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 mb-6">
+                            # Fichier Account.dat requis<br>
+                            Active Online: true<br>
+                            Server: connect.newtendo.online
+                        </div>
+                    </div>
+                    <button onclick="openGuideModal('cemu')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors">
+                        Guide Configuration Cemu
+                    </button>
+                </div>
+
+                <!-- Citra / 3DS Emulators -->
+                <div class="glass-card p-8 rounded-3xl border border-newtendo-border flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Citra / Mandarine (3DS)</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Émulateurs 3DS</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            Basculez facilement vos services web 3DS sur PC ou Android en modifiant le fichier de configuration réseau de votre émulateur 3DS.
+                        </p>
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 font-mono text-xs text-purple-300 mb-6">
+                            # Web Services Config<br>
+                            pubkey_auth = false<br>
+                            custom_dns = true
+                        </div>
+                    </div>
+                    <button onclick="openGuideModal('citra')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors">
+                        Guide Configuration 3DS PC
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="statut" class="py-24 bg-newtendo-dark/90 relative border-t border-newtendo-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
-                    <div class="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-2">Blog & Mises à jour</div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Dernières Actualités</h2>
+                    <div class="text-indigo-400 font-semibold text-sm uppercase tracking-wider mb-2">Disponibilité</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Tableau de Bord des Serveurs</h2>
                 </div>
-                <a href="#actualites" class="mt-4 md:mt-0 text-sm font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-2">
-                    Voir toutes les actus <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <article class="glass-panel rounded-2xl overflow-hidden border border-nexus-border hover:border-cyan-500/40 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 bg-gradient-to-tr from-cyan-900/40 to-purple-900/40 flex items-center justify-center relative">
-                            <i class="fa-solid fa-gamepad text-5xl text-cyan-400/60"></i>
-                            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-semibold backdrop-blur-md">Mise à jour</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="text-xs text-gray-400 mb-2">2 Octobre 2026</div>
-                            <h3 class="text-xl font-bold text-white mb-3 hover:text-cyan-400 transition-colors">Migration des serveurs NEX et amélioration du ping</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">Notre infrastructure de matchmaking a été entièrement optimisée pour réduire la latence globale en Europe et en Amérique.</p>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <span class="text-xs font-semibold text-cyan-400 flex items-center gap-1.5 cursor-pointer">Lire l'article complet <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
-                    </div>
-                </article>
-
-                <article class="glass-panel rounded-2xl overflow-hidden border border-nexus-border hover:border-cyan-500/40 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 bg-gradient-to-tr from-purple-900/40 to-pink-900/40 flex items-center justify-center relative">
-                            <i class="fa-solid fa-trophy text-5xl text-purple-400/60"></i>
-                            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold backdrop-blur-md">Événement</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="text-xs text-gray-400 mb-2">28 Septembre 2026</div>
-                            <h3 class="text-xl font-bold text-white mb-3 hover:text-cyan-400 transition-colors">Tournoi Mario Kart 8 & MK7 ce weekend !</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">Participez à notre grand tournoi communautaire ce samedi. Des rôles exclusifs et badges Discord à gagner pour les vainqueurs.</p>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <span class="text-xs font-semibold text-cyan-400 flex items-center gap-1.5 cursor-pointer">Lire l'article complet <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
-                    </div>
-                </article>
-
-                <article class="glass-panel rounded-2xl overflow-hidden border border-nexus-border hover:border-cyan-500/40 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 bg-gradient-to-tr from-blue-900/40 to-cyan-900/40 flex items-center justify-center relative">
-                            <i class="fa-solid fa-code text-5xl text-blue-400/60"></i>
-                            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold backdrop-blur-md">Développement</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="text-xs text-gray-400 mb-2">15 Septembre 2026</div>
-                            <h3 class="text-xl font-bold text-white mb-3 hover:text-cyan-400 transition-colors">Rapport de transparence et objectifs Q4</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed">Découvrez comment vos dons financent l'hébergement sécurisé de nos serveurs et le développement des nouveaux correctifs.</p>
-                        </div>
-                    </div>
-                    <div class="px-6 pb-6 pt-0">
-                        <span class="text-xs font-semibold text-cyan-400 flex items-center gap-1.5 cursor-pointer">Lire l'article complet <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="communaute" class="py-20 bg-nexus-dark relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="glass-panel p-10 md:p-16 rounded-3xl border border-cyan-500/30 text-center relative overflow-hidden">
-                <div class="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center mx-auto mb-6 neon-glow-cyan text-white text-2xl">
-                    <i class="fa-brands fa-discord"></i>
-                </div>
-
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Rejoignez notre communauté</h2>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-8 text-lg">Plus de 35 000 membres partagent leurs codes amis, organisent des sessions de jeux et s'entraident sur notre serveur Discord.</p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="https://discord.com" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#5865F2] text-white font-bold text-base hover:opacity-90 transition-all shadow-lg flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-discord text-xl"></i> Rejoindre le Discord
-                    </a>
-                    <a href="https://github.com" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-white font-bold text-base hover:border-cyan-500/50 transition-all flex items-center justify-center gap-3">
-                        <i class="fa-brands fa-github text-xl"></i> Code Source (GitHub)
-                    </a>
+                <div class="mt-4 md:mt-0 flex items-center space-x-2 text-sm text-slate-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>Actualisé en temps réel (Latence & Uptime)</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="bg-nexus-dark border-t border-nexus-border pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div class="md:col-span-1">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center">
-                            <i class="fa-solid fa-gamepad text-white text-sm"></i>
+            <!-- Server Status Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                            <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <span class="text-lg font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                            NEXUS<span class="text-white">NETWORK</span>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Opérationnel
                         </span>
                     </div>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                        Projet communautaire à but non lucratif de préservation du multijoueur Nintendo Wii U & 3DS. Non affilié à Nintendo.
+                    <h3 class="font-bold text-white mb-1">Authentification NEX</h3>
+                    <p class="text-xs text-slate-400 mb-4">Connexion NNID et validation des sessions.</p>
+                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
+                        <span>Latence : 14ms</span>
+                        <span class="text-emerald-400 font-medium">99.99%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Opérationnel
+                        </span>
+                    </div>
+                    <h3 class="font-bold text-white mb-1">Service Amis & Présence</h3>
+                    <p class="text-xs text-slate-400 mb-4">Notifications, status en ligne et listes.</p>
+                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
+                        <span>Latence : 18ms</span>
+                        <span class="text-emerald-400 font-medium">100%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Opérationnel
+                        </span>
+                    </div>
+                    <h3 class="font-bold text-white mb-1">Matchmaking Jeux</h3>
+                    <p class="text-xs text-slate-400 mb-4">Salons de jeux et parties multijoueurs.</p>
+                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
+                        <span>Latence : 22ms</span>
+                        <span class="text-emerald-400 font-medium">99.9%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Maintenance
+                        </span>
+                    </div>
+                    <h3 class="font-bold text-white mb-1">Portail Web / MiiVerse</h3>
+                    <p class="text-xs text-slate-400 mb-4">Partages et profils communautaires.</p>
+                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
+                        <span>Latence : 35ms</span>
+                        <span class="text-amber-400 font-medium">98.5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-newtendo-dark border-t border-newtendo-border pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg gradient-brand flex items-center justify-center">
+                            <i class="fa-solid fa-cube text-white text-sm"></i>
+                        </div>
+                        <span class="text-base font-extrabold tracking-wider text-white">
+                            NEWTENDO<span class="gradient-text">.ONLINE</span>
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        Projet communautaire bénévole dédié à la préservation du multijoueur Nintendo. Non affilié à Nintendo Co., Ltd.
                     </p>
                 </div>
-
                 <div>
-                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Navigation</h4>
-                    <ul class="space-y-2.5 text-sm text-gray-400">
-                        <li><a href="#accueil" class="hover:text-cyan-400 transition-colors">Accueil</a></li>
-                        <li><a href="#statut" class="hover:text-cyan-400 transition-colors">État des serveurs</a></li>
-                        <li><a href="#guides" class="hover:text-cyan-400 transition-colors">Guides d'installation</a></li>
-                        <li><a href="#actualites" class="hover:text-cyan-400 transition-colors">Actualités</a></li>
+                    <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#accueil" class="hover:text-indigo-400 transition-colors">Accueil principal</a></li>
+                        <li><a href="#private-online" class="hover:text-indigo-400 transition-colors">Private Online (Wii U / 3DS)</a></li>
+                        <li><a href="#emulateur" class="hover:text-indigo-400 transition-colors">Émulateurs PC / Mobile</a></li>
+                        <li><a href="#statut" class="hover:text-indigo-400 transition-colors">État des serveurs</a></li>
                     </ul>
                 </div>
-
                 <div>
-                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Plateformes</h4>
-                    <ul class="space-y-2.5 text-sm text-gray-400">
-                        <li><a href="#guides" class="hover:text-cyan-400 transition-colors">Nintendo Wii U (Aroma)</a></li>
-                        <li><a href="#guides" class="hover:text-cyan-400 transition-colors">Nintendo 3DS / 2DS</a></li>
-                        <li><a href="#statut" class="hover:text-cyan-400 transition-colors">Statistiques réseau</a></li>
-                        <li><a href="#communaute" class="hover:text-cyan-400 transition-colors">Support & FAQ</a></li>
+                    <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Communauté</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Serveur Discord Officiel</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Dépôt GitHub Open Source</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Règlement & Code de conduite</a></li>
                     </ul>
                 </div>
-
                 <div>
-                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Légal & Soutien</h4>
-                    <ul class="space-y-2.5 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Faire un Don (Patreon/Ko-fi)</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Politique de confidentialité</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Conditions d'utilisation</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Mentions légales</a></li>
-                    </ul>
+                    <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Soutien & Don</h4>
+                    <p class="text-xs text-slate-400 mb-3">Aidez-nous à financer les serveurs dédiés haut débit.</p>
+                    <button onclick="showToast('Merci !', 'Le lien vers notre page de soutien financier s’ouvrira bientôt.')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-indigo-300 transition-colors">
+                        Faire un don (Patreon / Ko-fi)
+                    </button>
                 </div>
             </div>
 
-            <div class="pt-8 border-t border-nexus-border flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-                <p>&copy; 2026 NexusNetwork Project. Tous droits réservés.</p>
+            <div class="pt-8 border-t border-newtendo-border flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Newtendo Online Project. Tous droits réservés.</p>
                 <div class="flex space-x-6 mt-4 sm:mt-0">
-                    <span class="flex items-center gap-1.5 text-emerald-400">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Tous les serveurs opérationnels
+                    <span class="text-indigo-400 font-medium flex items-center gap-1.5">
+                        <i class="fa-solid fa-heart text-purple-500"></i> Fait par et pour les passionnés
                     </span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
-        <div class="glass-panel p-8 rounded-3xl border border-nexus-border max-w-md w-full mx-4 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+    <!-- Universal Modal -->
+    <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
+        <div class="glass-card p-8 rounded-3xl border border-indigo-500/30 max-w-lg w-full mx-4 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4">
-                <i class="fa-solid fa-user-plus"></i>
+            <div id="modal-content">
+                <!-- Dynamic Content injected by JS -->
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Créer un Nexus ID</h3>
-            <p class="text-sm text-gray-400 mb-6">Inscrivez-vous pour lier votre compte à votre console Wii U ou 3DS.</p>
-            
-            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-gray-300 mb-1">Nom d'utilisateur</label>
-                    <input type="text" required placeholder="PseudoNintendo" class="w-full px-4 py-3 rounded-xl bg-nexus-dark border border-nexus-border text-white text-sm focus:outline-none focus:border-cyan-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-gray-300 mb-1">Adresse Email</label>
-                    <input type="email" required placeholder="votre@email.com" class="w-full px-4 py-3 rounded-xl bg-nexus-dark border border-nexus-border text-white text-sm focus:outline-none focus:border-cyan-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-gray-300 mb-1">Mot de passe</label>
-                    <input type="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-nexus-dark border border-nexus-border text-white text-sm focus:outline-none focus:border-cyan-500">
-                </div>
-                <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm hover:opacity-95 transition-all shadow-lg neon-glow-cyan">
-                    S'inscrire gratuitement
-                </button>
-            </form>
         </div>
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 transition-transform duration-300 glass-panel border border-cyan-500/40 px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
-        <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 transition-transform duration-300 glass-card border border-indigo-500/40 px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
             <i class="fa-solid fa-check text-sm"></i>
         </div>
         <div>
             <h4 class="font-bold text-white text-sm" id="toast-title">Succès</h4>
-            <p class="text-xs text-gray-400" id="toast-msg">Action effectuée avec succès.</p>
+            <p class="text-xs text-slate-400" id="toast-msg">Action effectuée.</p>
         </div>
     </div>
 
     <script>
-        // Mobile menu toggle
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Platform status tab switcher
-        function switchPlatform(platform) {
-            const btnWiiU = document.getElementById('tab-wiiu');
-            const btn3DS = document.getElementById('tab-3ds');
-            const sWiiU = document.getElementById('services-wiiu');
-            const s3DS = document.getElementById('services-3ds');
-
-            if (platform === 'wiiu') {
-                btnWiiU.className = "px-5 py-2 rounded-lg text-sm font-bold bg-cyan-500 text-black transition-all shadow-md";
-                btn3DS.className = "px-5 py-2 rounded-lg text-sm font-bold text-gray-400 hover:text-white transition-all";
-                sWiiU.classList.remove('hidden');
-                s3DS.classList.add('hidden');
-            } else {
-                btn3DS.className = "px-5 py-2 rounded-lg text-sm font-bold bg-purple-500 text-white transition-all shadow-md";
-                btnWiiU.className = "px-5 py-2 rounded-lg text-sm font-bold text-gray-400 hover:text-white transition-all";
-                s3DS.classList.remove('hidden');
-                sWiiU.classList.add('hidden');
-            }
-        }
-
-        // Guide tab switcher
-        function switchGuide(consoleType) {
-            const tabWiiU = document.getElementById('guide-tab-wiiu');
-            const tab3DS = document.getElementById('guide-tab-3ds');
-            const contentWiiU = document.getElementById('guide-content-wiiu');
-            const content3DS = document.getElementById('guide-content-3ds');
-
-            if (consoleType === 'wiiu') {
-                tabWiiU.className = "px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-cyan-500 to-blue-600 text-white transition-all shadow-md";
-                tab3DS.className = "px-6 py-3 rounded-xl text-sm font-bold text-gray-400 hover:text-white transition-all";
-                contentWiiU.classList.remove('hidden');
-                content3DS.classList.add('hidden');
-            } else {
-                tab3DS.className = "px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-purple-500 to-pink-600 text-white transition-all shadow-md";
-                tabWiiU.className = "px-6 py-3 rounded-xl text-sm font-bold text-gray-400 hover:text-white transition-all";
-                content3DS.classList.remove('hidden');
-                contentWiiU.classList.add('hidden');
-            }
-        }
-
-        // Modal handling
+        // Modal Elements
         const modal = document.getElementById('modal');
-        function openModal() {
-            modal.classList.remove('hidden');
-        }
+        const modalContent = document.getElementById('modal-content');
+
         function closeModal() {
             modal.classList.add('hidden');
         }
 
-        // Form submit & Toast
-        function handleFormSubmit(e) {
+        function openAccountModal() {
+            modalContent.innerHTML = `
+                <div class="w-12 h-12 rounded-2xl gradient-brand text-white flex items-center justify-center text-xl mb-4">
+                    <i class="fa-solid fa-user-circle"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Espace Compte Newtendo ID</h3>
+                <p class="text-sm text-slate-400 mb-6">Connectez-vous pour lier vos consoles et gérer votre profil en ligne.</p>
+                <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Nom d'utilisateur / Newtendo ID</label>
+                        <input type="text" required placeholder="PseudoJoueur" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-newtendo-border text-white text-sm focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Mot de passe</label>
+                        <input type="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-newtendo-border text-white text-sm focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-xl gradient-brand text-white font-bold text-sm hover:opacity-95 transition-all shadow-lg">
+                        Se connecter
+                    </button>
+                </form>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function openGuideModal(type) {
+            let title = "";
+            let html = "";
+            if (type === 'wiiu') {
+                title = "Guide d'installation Nintendo Wii U";
+                html = `
+                    <div class="space-y-4 text-sm text-slate-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl gradient-brand text-white flex items-center justify-center">
+                                <i class="fa-brands fa-wii"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">${title}</h3>
+                        </div>
+                        <ol class="list-decimal list-inside space-y-2 text-slate-300 leading-relaxed">
+                            <li>Disposer d'une Wii U modifiée avec <b>Aroma</b> ou <b>Tiramisu</b>.</li>
+                            <li>Télécharger le plugin de redirection DNS Newtendo sur la carte SD.</li>
+                            <li>Renseigner l'adresse DNS primaire : <code class="bg-slate-900 px-2 py-1 rounded text-indigo-300">168.235.51.23</code></li>
+                            <li>Créer votre compte Newtendo ID depuis notre site et l'associer.</li>
+                        </ol>
+                        <div class="pt-4">
+                            <button onclick="closeModal(); showToast('Redirection', 'Téléchargement du pack Wii U en cours...');" class="w-full py-3 rounded-xl gradient-brand text-white font-bold text-sm">Télécharger le pack Aroma Setup</button>
+                        </div>
+                    </div>
+                `;
+            } else if (type === '3ds') {
+                title = "Guide d'installation Nintendo 3DS";
+                html = `
+                    <div class="space-y-4 text-sm text-slate-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">${title}</h3>
+                        </div>
+                        <ol class="list-decimal list-inside space-y-2 text-slate-300 leading-relaxed">
+                            <li>Vérifier que votre console possède Luma3DS à jour.</li>
+                            <li>Télécharger l'application <code class="bg-slate-900 px-2 py-1 rounded text-purple-300">Nimbus.cia</code>.</li>
+                            <li>Installer le fichier .cia via FBI sur votre carte SD 3DS.</li>
+                            <li>Lancer Nimbus depuis le menu HOME et sélectionner Newtendo Online.</li>
+                        </ol>
+                        <div class="pt-4">
+                            <button onclick="closeModal(); showToast('Succès', 'Nimbus .CIA prêt à l’emploi.');" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm">Télécharger Nimbus .CIA</button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                title = "Configuration Émulateur (Cemu / Citra)";
+                html = `
+                    <div class="space-y-4 text-sm text-slate-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                                <i class="fa-solid fa-desktop"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">${title}</h3>
+                        </div>
+                        <p class="leading-relaxed">Pour vous connecter depuis un émulateur PC :</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-300">
+                            <li>Générez un fichier d'identification en vous connectant via le formulaire de compte.</li>
+                            <li>Placez vos fichiers d'authentification dans le dossier de configuration de l'émulateur.</li>
+                            <li>Activez le mode réseau personnalisé Newtendo dans les options de l'émulateur.</li>
+                        </ul>
+                        <div class="pt-4">
+                            <button onclick="closeModal(); showToast('Information', 'Fichiers de configuration exportés.');" class="w-full py-3 rounded-xl bg-slate-800 text-white font-bold text-sm">Télécharger l'outil Config PC</button>
+                        </div>
+                    </div>
+                `;
+            }
+            modalContent.innerHTML = html;
+            modal.classList.remove('hidden');
+        }
+
+        function handleAuthSubmit(e) {
             e.preventDefault();
             closeModal();
-            showToast("Compte créé !", "Votre Nexus ID a été généré avec succès. Vérifiez vos emails.");
+            showToast('Connexion réussie', 'Bienvenue sur votre tableau de bord Newtendo Online.');
         }
 
         function showToast(title, msg) {
