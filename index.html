@@ -1,606 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newtendo Online - Le Multijoueur Libre Wii U & 3DS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        newtendo: {
-                            dark: '#030712',
-                            card: '#0b0f19',
-                            border: '#1f293d',
-                            indigo: '#4f46e5',
-                            purple: '#8b5cf6',
-                            accent: '#6366f1'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            background-color: #030712;
-            color: #f3f4f6;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        .gradient-brand {
-            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .glass-card {
-            background: rgba(11, 15, 25, 0.75);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(99, 102, 241, 0.15);
-        }
-        .glass-card:hover {
-            border-color: rgba(139, 92, 246, 0.4);
-        }
-        .glow-effect {
-            box-shadow: 0 0 35px rgba(99, 102, 241, 0.2);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #030712;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1f293d;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4f46e5;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newtendo Online - Le Multijoueur Libre Wii U & 3DS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{newtendo:{dark:'#030712',card:'#0b0f19',border:'#1f293d'}},fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body{background:#030712;color:#f3f4f6;font-family:'Inter',sans-serif;overflow-x:hidden}
+section{scroll-margin-top:80px}
+.gradient-brand{background:linear-gradient(135deg,#4f46e5,#8b5cf6)}
+.gradient-text{background:linear-gradient(135deg,#6366f1,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.glass-card{background:rgba(11,15,25,.75);backdrop-filter:blur(16px);border:1px solid rgba(99,102,241,.15)}
+.glass-card:hover{border-color:rgba(139,92,246,.4)}
+.glow-effect{box-shadow:0 0 35px rgba(99,102,241,.2)}
+.nav-link.active{color:#818cf8}
+:focus-visible{outline:2px solid #818cf8;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-<body class="bg-newtendo-dark min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+<body class="min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-newtendo-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#accueil" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center glow-effect group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-cube text-white text-lg"></i>
-                </div>
-                <span class="text-xl font-extrabold tracking-wider text-white">
-                    NEWTENDO<span class="gradient-text">.ONLINE</span>
-                </span>
-            </a>
+<header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-newtendo-border">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <a href="#accueil" class="flex items-center space-x-3">
+   <div class="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center glow-effect"><i class="fa-solid fa-cube text-white text-lg"></i></div>
+   <span class="text-xl font-extrabold tracking-wider">NEWTENDO<span class="gradient-text">.ONLINE</span></span>
+  </a>
+  <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+   <a href="#accueil" class="nav-link hover:text-indigo-400">Accueil</a>
+   <a href="#private-online" class="nav-link hover:text-indigo-400">Private Online</a>
+   <a href="#emulateur" class="nav-link hover:text-indigo-400">Émulateur</a>
+   <a href="#statut" class="nav-link hover:text-indigo-400 flex items-center gap-2"><span id="nav-dot" class="w-2 h-2 rounded-full bg-slate-500"></span>Statut</a>
+   <a href="#teams" class="nav-link hover:text-indigo-400">Équipe</a>
+  </nav>
+  <div class="hidden md:block">
+   <button data-account class="px-5 py-2.5 rounded-xl gradient-brand font-semibold text-sm glow-effect"><i class="fa-solid fa-user-circle mr-2"></i><span class="acc-label">Mon compte</span></button>
+  </div>
+  <button id="mobile-menu-btn" aria-label="Menu" class="md:hidden text-slate-300 hover:text-white p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+ </div>
+ <div id="mobile-menu" class="hidden md:hidden border-t border-newtendo-border px-6 pt-3 pb-6 space-y-1 text-slate-300 font-medium">
+  <a href="#accueil" class="block py-2">Accueil</a><a href="#private-online" class="block py-2">Private Online</a>
+  <a href="#emulateur" class="block py-2">Émulateur</a><a href="#statut" class="block py-2">Statut des serveurs</a><a href="#teams" class="block py-2">Équipe</a>
+  <button data-account class="w-full mt-3 py-3 rounded-xl gradient-brand text-white font-semibold text-sm"><span class="acc-label">Mon compte</span></button>
+ </div>
+</header>
 
-            <!-- Streamlined Navigation Menu -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#accueil" class="hover:text-indigo-400 transition-colors">Accueil</a>
-                <a href="#private-online" class="hover:text-indigo-400 transition-colors flex items-center gap-2">
-                    <i class="fa-solid fa-network-wired text-indigo-400"></i> Private Online
-                </a>
-                <a href="#emulateur" class="hover:text-indigo-400 transition-colors flex items-center gap-2">
-                    <i class="fa-solid fa-desktop text-purple-400"></i> Emulateur
-                </a>
-                <a href="#statut" class="hover:text-indigo-400 transition-colors flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Statut
-                </a>
-            </nav>
+<section id="accueil" class="relative pt-36 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+ <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+  <div class="max-w-4xl mx-auto">
+   <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-indigo-300 text-xs md:text-sm font-semibold mb-6"><i class="fa-solid fa-bolt text-indigo-400"></i><span>La relève libre et open-source des services Nintendo Wii U & 3DS</span></div>
+   <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight">Le multijoueur redéfini pour vos <span class="gradient-text">consoles et émulateurs</span></h1>
+   <p class="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">Newtendo Online restaure les fonctionnalités en ligne avec une infrastructure moderne, rapide et gratuite.</p>
+   <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <a href="#private-online" class="w-full sm:w-auto px-8 py-4 rounded-xl gradient-brand font-bold glow-effect flex items-center justify-center gap-3"><i class="fa-solid fa-gamepad"></i> Configurer Private Online</a>
+    <a href="#statut" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card font-bold flex items-center justify-center gap-3"><i class="fa-solid fa-signal text-indigo-400"></i> Voir le statut</a>
+   </div>
+   <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-newtendo-border">
+    <div class="glass-card p-6 rounded-2xl"><div id="st-users" class="text-3xl md:text-4xl font-extrabold gradient-text mb-1">–</div><div class="text-xs text-slate-400 font-semibold">Joueurs inscrits</div></div>
+    <div class="glass-card p-6 rounded-2xl"><div id="st-online" class="text-3xl md:text-4xl font-extrabold text-indigo-400 mb-1">–</div><div class="text-xs text-slate-400 font-semibold">Connectés actuellement</div></div>
+    <div class="glass-card p-6 rounded-2xl"><div id="st-uptime" class="text-3xl md:text-4xl font-extrabold text-purple-400 mb-1">–</div><div class="text-xs text-slate-400 font-semibold">Serveur actif depuis</div></div>
+    <div class="glass-card p-6 rounded-2xl"><div id="st-ok" class="text-3xl md:text-4xl font-extrabold text-emerald-400 mb-1">–</div><div class="text-xs text-slate-400 font-semibold">Services opérationnels</div></div>
+   </div>
+  </div>
+ </div>
+</section>
 
-            <div class="hidden md:flex items-center space-x-4">
-                <button onclick="openAccountModal()" class="px-5 py-2.5 rounded-xl gradient-brand text-white font-semibold text-sm hover:opacity-95 transition-all glow-effect shadow-lg">
-                    <i class="fa-solid fa-user-circle mr-2"></i> Mon Compte
-                </button>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-newtendo-border px-6 pt-3 pb-6 space-y-3">
-            <a href="#accueil" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Accueil</a>
-            <a href="#private-online" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium flex items-center gap-2">
-                <i class="fa-solid fa-network-wired text-indigo-400"></i> Private Online
-            </a>
-            <a href="#emulateur" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium flex items-center gap-2">
-                <i class="fa-solid fa-desktop text-purple-400"></i> Emulateur
-            </a>
-            <a href="#statut" class="block py-2 text-slate-300 hover:text-indigo-400 font-medium">Statut des serveurs</a>
-            <div class="pt-3">
-                <button onclick="openAccountModal()" class="w-full py-3 rounded-xl gradient-brand text-white font-semibold text-sm shadow-lg text-center">
-                    Mon Compte / Connexion
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <section id="accueil" class="relative pt-36 pb-24 md:pt-48 md:pb-36 overflow-hidden">
-        <!-- Background Ambient Glows -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute top-1/3 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card border border-indigo-500/30 text-indigo-300 text-xs md:text-sm font-semibold mb-6 shadow-inner">
-                    <i class="fa-solid fa-bolt text-indigo-400"></i>
-                    <span>La relève libre et open-source des services Nintendo Wii U & 3DS</span>
-                </div>
-                
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
-                    Le multijoueur redéfini pour vos <span class="gradient-text">consoles et émulateurs</span>
-                </h1>
-                
-                <p class="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Newtendo Online restaure l'intégralité des fonctionnalités en ligne (Matchmaking, Amis, MiiVerse) avec une infrastructure moderne, ultra-rapide et totalement gratuite.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#private-online" class="w-full sm:w-auto px-8 py-4 rounded-xl gradient-brand text-white font-bold text-base hover:opacity-95 transition-all glow-effect flex items-center justify-center gap-3 shadow-lg">
-                        <i class="fa-solid fa-gamepad"></i> Configurer Private Online
-                    </a>
-                    <a href="#emulateur" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-bold text-base hover:border-indigo-500/50 transition-all flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-laptop-code text-indigo-400"></i> Guide Émulateurs
-                    </a>
-                </div>
-
-                <!-- Quick Stats Grid -->
-                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-newtendo-border">
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="text-3xl md:text-4xl font-extrabold gradient-text mb-1">52,400+</div>
-                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Joueurs Enregistrés</div>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="text-3xl md:text-4xl font-extrabold text-indigo-400 mb-1">1,850</div>
-                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">En Ligne Actuellement</div>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="text-3xl md:text-4xl font-extrabold text-purple-400 mb-1">99.98%</div>
-                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Disponibilité Uptime</div>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="text-3xl md:text-4xl font-extrabold text-emerald-400 mb-1">140+</div>
-                        <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Jeux Supportés</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="private-online" class="py-24 bg-newtendo-dark/90 relative border-t border-newtendo-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="text-indigo-400 font-semibold text-sm uppercase tracking-wider mb-2">Matériel & Consoles</div>
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Private Online</h2>
-                <p class="text-slate-400 text-base sm:text-lg">Redonnez vie à votre Nintendo Wii U ou Nintendo 3DS physique grâce à nos correctifs DNS et homebrews dédiés.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <!-- Wii U Card -->
-                <div class="glass-card p-8 sm:p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between">
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-14 h-14 rounded-2xl gradient-brand flex items-center justify-center text-white text-2xl shadow-md">
-                                <i class="fa-brands fa-wii"></i>
-                            </div>
-                            <span class="px-3.5 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-bold border border-indigo-500/20">Wii U / Aroma</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Nintendo Wii U</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Connectez votre console modifiée avec Aroma ou Tiramisu. Profitez de Mario Kart 8, Splatoon, Super Smash Bros et des listes d'amis en temps réel.
-                        </p>
-                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
-                            <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-circle-check text-indigo-400"></i> Configuration par DNS ou Plugin Aroma
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-circle-check text-indigo-400"></i> Support complet du Matchmaking NEX
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-circle-check text-indigo-400"></i> Gestion des profils et comptes Newtendo ID
-                            </li>
-                        </ul>
-                    </div>
-                    <button onclick="openGuideModal('wiiu')" class="w-full py-3.5 rounded-xl gradient-brand text-white font-bold text-sm hover:opacity-95 transition-all shadow-md">
-                        Voir le Guide Wii U
-                    </button>
-                </div>
-
-                <!-- 3DS Card -->
-                <div class="glass-card p-8 sm:p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between">
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white text-2xl shadow-md">
-                                <i class="fa-solid fa-gamepad"></i>
-                            </div>
-                            <span class="px-3.5 py-1.5 rounded-full bg-purple-500/10 text-purple-300 text-xs font-bold border border-purple-500/20">3DS / 2DS / Luma</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Nintendo 3DS / 2DS</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Utilisez l'application Nimbus ou l'injection Luma pour basculer instantanément sur les serveurs Newtendo. Reprenez vos parties de Mario Kart 7 et Pokémon en ligne.
-                        </p>
-                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
-                            <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-circle-check text-purple-400"></i> Installation simple via fichier .CIA
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-circle-check text-purple-400"></i> Compatible SpotPass & StreetPass virtuel
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-circle-check text-purple-400"></i> Compatible Old 3DS, New 3DS et 2DS
-                            </li>
-                        </ul>
-                    </div>
-                    <button onclick="openGuideModal('3ds')" class="w-full py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition-all shadow-md">
-                        Voir le Guide 3DS
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="emulateur" class="py-24 bg-newtendo-dark relative border-t border-newtendo-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="text-purple-400 font-semibold text-sm uppercase tracking-wider mb-2">PC & Ordinateurs</div>
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Émulateur & PC Setup</h2>
-                <p class="text-slate-400 text-base sm:text-lg">Jouez en haute résolution sur PC en connectant vos émulateurs favoris directement à notre réseau privé sécurisé.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Cemu Emulator -->
-                <div class="glass-card p-8 rounded-3xl border border-newtendo-border flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl">
-                                <i class="fa-solid fa-desktop"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Cemu (Wii U)</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Cemu Emulator</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Configurez vos identifiants Newtendo dans Cemu pour activer le multijoueur en ligne à 4K / 60 FPS avec des joueurs sur console réelle et émulateur.
-                        </p>
-                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 mb-6">
-                            # Fichier Account.dat requis<br>
-                            Active Online: true<br>
-                            Server: connect.newtendo.online
-                        </div>
-                    </div>
-                    <button onclick="openGuideModal('cemu')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors">
-                        Guide Configuration Cemu
-                    </button>
-                </div>
-
-                <!-- Citra / 3DS Emulators -->
-                <div class="glass-card p-8 rounded-3xl border border-newtendo-border flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl">
-                                <i class="fa-solid fa-mobile-screen"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Citra / Mandarine (3DS)</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Émulateurs 3DS</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                            Basculez facilement vos services web 3DS sur PC ou Android en modifiant le fichier de configuration réseau de votre émulateur 3DS.
-                        </p>
-                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 font-mono text-xs text-purple-300 mb-6">
-                            # Web Services Config<br>
-                            pubkey_auth = false<br>
-                            custom_dns = true
-                        </div>
-                    </div>
-                    <button onclick="openGuideModal('citra')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors">
-                        Guide Configuration 3DS PC
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="statut" class="py-24 bg-newtendo-dark/90 relative border-t border-newtendo-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <div class="text-indigo-400 font-semibold text-sm uppercase tracking-wider mb-2">Disponibilité</div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Tableau de Bord des Serveurs</h2>
-                </div>
-                <div class="mt-4 md:mt-0 flex items-center space-x-2 text-sm text-slate-400">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                    <span>Actualisé en temps réel (Latence & Uptime)</span>
-                </div>
-            </div>
-
-            <!-- Server Status Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-card p-6 rounded-2xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-white mb-1">Authentification NEX</h3>
-                    <p class="text-xs text-slate-400 mb-4">Connexion NNID et validation des sessions.</p>
-                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
-                        <span>Latence : 14ms</span>
-                        <span class="text-emerald-400 font-medium">99.99%</span>
-                    </div>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-white mb-1">Service Amis & Présence</h3>
-                    <p class="text-xs text-slate-400 mb-4">Notifications, status en ligne et listes.</p>
-                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
-                        <span>Latence : 18ms</span>
-                        <span class="text-emerald-400 font-medium">100%</span>
-                    </div>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
-                            <i class="fa-solid fa-network-wired"></i>
-                        </div>
-                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Opérationnel
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-white mb-1">Matchmaking Jeux</h3>
-                    <p class="text-xs text-slate-400 mb-4">Salons de jeux et parties multijoueurs.</p>
-                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
-                        <span>Latence : 22ms</span>
-                        <span class="text-emerald-400 font-medium">99.9%</span>
-                    </div>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                            <i class="fa-solid fa-globe"></i>
-                        </div>
-                        <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Maintenance
-                        </span>
-                    </div>
-                    <h3 class="font-bold text-white mb-1">Portail Web / MiiVerse</h3>
-                    <p class="text-xs text-slate-400 mb-4">Partages et profils communautaires.</p>
-                    <div class="flex justify-between text-xs text-slate-500 pt-3 border-t border-newtendo-border">
-                        <span>Latence : 35ms</span>
-                        <span class="text-amber-400 font-medium">98.5%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-newtendo-dark border-t border-newtendo-border pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 rounded-lg gradient-brand flex items-center justify-center">
-                            <i class="fa-solid fa-cube text-white text-sm"></i>
-                        </div>
-                        <span class="text-base font-extrabold tracking-wider text-white">
-                            NEWTENDO<span class="gradient-text">.ONLINE</span>
-                        </span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                        Projet communautaire bénévole dédié à la préservation du multijoueur Nintendo. Non affilié à Nintendo Co., Ltd.
-                    </p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Navigation</h4>
-                    <ul class="space-y-2 text-xs text-slate-400">
-                        <li><a href="#accueil" class="hover:text-indigo-400 transition-colors">Accueil principal</a></li>
-                        <li><a href="#private-online" class="hover:text-indigo-400 transition-colors">Private Online (Wii U / 3DS)</a></li>
-                        <li><a href="#emulateur" class="hover:text-indigo-400 transition-colors">Émulateurs PC / Mobile</a></li>
-                        <li><a href="#statut" class="hover:text-indigo-400 transition-colors">État des serveurs</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Communauté</h4>
-                    <ul class="space-y-2 text-xs text-slate-400">
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Serveur Discord Officiel</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Dépôt GitHub Open Source</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Règlement & Code de conduite</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4 text-xs uppercase tracking-wider">Soutien & Don</h4>
-                    <p class="text-xs text-slate-400 mb-3">Aidez-nous à financer les serveurs dédiés haut débit.</p>
-                    <button onclick="showToast('Merci !', 'Le lien vers notre page de soutien financier s’ouvrira bientôt.')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-indigo-300 transition-colors">
-                        Faire un don (Patreon / Ko-fi)
-                    </button>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-newtendo-border flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
-                <p>&copy; 2026 Newtendo Online Project. Tous droits réservés.</p>
-                <div class="flex space-x-6 mt-4 sm:mt-0">
-                    <span class="text-indigo-400 font-medium flex items-center gap-1.5">
-                        <i class="fa-solid fa-heart text-purple-500"></i> Fait par et pour les passionnés
-                    </span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Universal Modal -->
-    <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
-        <div class="glass-card p-8 rounded-3xl border border-indigo-500/30 max-w-lg w-full mx-4 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-            <div id="modal-content">
-                <!-- Dynamic Content injected by JS -->
-            </div>
-        </div>
+<section id="private-online" class="py-24 border-t border-newtendo-border">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+   <h2 class="text-3xl sm:text-5xl font-extrabold mb-4">Private Online</h2>
+   <p class="text-slate-400 text-base sm:text-lg">Reconnectez votre Wii U ou votre 3DS physique aux serveurs Newtendo.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+   <div class="glass-card p-8 sm:p-10 rounded-3xl flex flex-col justify-between">
+    <div>
+     <div class="flex items-center justify-between mb-6"><div class="w-14 h-14 rounded-2xl gradient-brand flex items-center justify-center text-2xl"><i class="fa-solid fa-tv"></i></div><span class="px-3.5 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-bold border border-indigo-500/20">Wii U / Aroma</span></div>
+     <h3 class="text-2xl font-bold mb-3">Nintendo Wii U</h3>
+     <p class="text-slate-300 text-sm leading-relaxed mb-6">Connectez votre console modifiée avec Aroma pour jouer en ligne et retrouver vos amis.</p>
     </div>
-
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 transition-transform duration-300 glass-card border border-indigo-500/40 px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
-        <div class="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-            <i class="fa-solid fa-check text-sm"></i>
-        </div>
-        <div>
-            <h4 class="font-bold text-white text-sm" id="toast-title">Succès</h4>
-            <p class="text-xs text-slate-400" id="toast-msg">Action effectuée.</p>
-        </div>
+    <button data-guide="wiiu" class="w-full py-3.5 rounded-xl gradient-brand font-bold text-sm">Voir le guide Wii U</button>
+   </div>
+   <div class="glass-card p-8 sm:p-10 rounded-3xl flex flex-col justify-between">
+    <div>
+     <div class="flex items-center justify-between mb-6"><div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-2xl"><i class="fa-solid fa-gamepad"></i></div><span class="px-3.5 py-1.5 rounded-full bg-purple-500/10 text-purple-300 text-xs font-bold border border-purple-500/20">3DS / 2DS / Luma</span></div>
+     <h3 class="text-2xl font-bold mb-3">Nintendo 3DS / 2DS</h3>
+     <p class="text-slate-300 text-sm leading-relaxed mb-6">Installez le patch réseau sur une console équipée de Luma3DS et reprenez vos parties en ligne.</p>
     </div>
+    <button data-guide="3ds" class="w-full py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-sm">Voir le guide 3DS</button>
+   </div>
+  </div>
+ </div>
+</section>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+<section id="emulateur" class="py-24 border-t border-newtendo-border">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+   <h2 class="text-3xl sm:text-5xl font-extrabold mb-4">Émulateurs</h2>
+   <p class="text-slate-400 text-base sm:text-lg">Jouez sur PC en connectant votre émulateur à Newtendo Online.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+   <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+    <div><div class="flex items-center justify-between mb-6"><div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xl"><i class="fa-solid fa-desktop"></i></div><span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Cemu (Wii U)</span></div>
+    <h3 class="text-xl font-bold mb-3">Cemu</h3><p class="text-slate-300 text-sm leading-relaxed mb-6">Associez votre compte Newtendo à Cemu pour jouer avec des joueurs sur console et sur PC.</p></div>
+    <button data-guide="cemu" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-semibold text-sm">Guide Cemu</button>
+   </div>
+   <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+    <div><div class="flex items-center justify-between mb-6"><div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl"><i class="fa-solid fa-mobile-screen"></i></div><span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Émulateurs 3DS</span></div>
+    <h3 class="text-xl font-bold mb-3">Émulateurs 3DS</h3><p class="text-slate-300 text-sm leading-relaxed mb-6">Utilisez un DNS personnalisé dans votre émulateur 3DS sur PC ou Android.</p></div>
+    <button data-guide="citra" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 font-semibold text-sm">Guide 3DS sur PC</button>
+   </div>
+  </div>
+ </div>
+</section>
 
-        // Modal Elements
-        const modal = document.getElementById('modal');
-        const modalContent = document.getElementById('modal-content');
+<section id="statut" class="py-24 border-t border-newtendo-border">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+   <div><h2 class="text-3xl sm:text-4xl font-extrabold">État des serveurs</h2><p id="global-status" class="text-slate-400 mt-2">Chargement…</p></div>
+   <div class="mt-4 md:mt-0 text-sm text-slate-400" id="updated"></div>
+  </div>
+  <div id="status-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+ </div>
+</section>
 
-        function closeModal() {
-            modal.classList.add('hidden');
-        }
+<section id="teams" class="py-24 border-t border-newtendo-border">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+   <h2 class="text-3xl sm:text-5xl font-extrabold mb-4">L'équipe</h2>
+   <p class="text-slate-400 text-base sm:text-lg">Des bénévoles qui font tourner Newtendo Online.</p>
+  </div>
 
-        function openAccountModal() {
-            modalContent.innerHTML = `
-                <div class="w-12 h-12 rounded-2xl gradient-brand text-white flex items-center justify-center text-xl mb-4">
-                    <i class="fa-solid fa-user-circle"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Espace Compte Newtendo ID</h3>
-                <p class="text-sm text-slate-400 mb-6">Connectez-vous pour lier vos consoles et gérer votre profil en ligne.</p>
-                <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Nom d'utilisateur / Newtendo ID</label>
-                        <input type="text" required placeholder="PseudoJoueur" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-newtendo-border text-white text-sm focus:outline-none focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Mot de passe</label>
-                        <input type="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-newtendo-border text-white text-sm focus:outline-none focus:border-indigo-500">
-                    </div>
-                    <button type="submit" class="w-full py-3 rounded-xl gradient-brand text-white font-bold text-sm hover:opacity-95 transition-all shadow-lg">
-                        Se connecter
-                    </button>
-                </form>
-            `;
-            modal.classList.remove('hidden');
-        }
+  <div id="team-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
 
-        function openGuideModal(type) {
-            let title = "";
-            let html = "";
-            if (type === 'wiiu') {
-                title = "Guide d'installation Nintendo Wii U";
-                html = `
-                    <div class="space-y-4 text-sm text-slate-300">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl gradient-brand text-white flex items-center justify-center">
-                                <i class="fa-brands fa-wii"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">${title}</h3>
-                        </div>
-                        <ol class="list-decimal list-inside space-y-2 text-slate-300 leading-relaxed">
-                            <li>Disposer d'une Wii U modifiée avec <b>Aroma</b> ou <b>Tiramisu</b>.</li>
-                            <li>Télécharger le plugin de redirection DNS Newtendo sur la carte SD.</li>
-                            <li>Renseigner l'adresse DNS primaire : <code class="bg-slate-900 px-2 py-1 rounded text-indigo-300">168.235.51.23</code></li>
-                            <li>Créer votre compte Newtendo ID depuis notre site et l'associer.</li>
-                        </ol>
-                        <div class="pt-4">
-                            <button onclick="closeModal(); showToast('Redirection', 'Téléchargement du pack Wii U en cours...');" class="w-full py-3 rounded-xl gradient-brand text-white font-bold text-sm">Télécharger le pack Aroma Setup</button>
-                        </div>
-                    </div>
-                `;
-            } else if (type === '3ds') {
-                title = "Guide d'installation Nintendo 3DS";
-                html = `
-                    <div class="space-y-4 text-sm text-slate-300">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center">
-                                <i class="fa-solid fa-gamepad"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">${title}</h3>
-                        </div>
-                        <ol class="list-decimal list-inside space-y-2 text-slate-300 leading-relaxed">
-                            <li>Vérifier que votre console possède Luma3DS à jour.</li>
-                            <li>Télécharger l'application <code class="bg-slate-900 px-2 py-1 rounded text-purple-300">Nimbus.cia</code>.</li>
-                            <li>Installer le fichier .cia via FBI sur votre carte SD 3DS.</li>
-                            <li>Lancer Nimbus depuis le menu HOME et sélectionner Newtendo Online.</li>
-                        </ol>
-                        <div class="pt-4">
-                            <button onclick="closeModal(); showToast('Succès', 'Nimbus .CIA prêt à l’emploi.');" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm">Télécharger Nimbus .CIA</button>
-                        </div>
-                    </div>
-                `;
-            } else {
-                title = "Configuration Émulateur (Cemu / Citra)";
-                html = `
-                    <div class="space-y-4 text-sm text-slate-300">
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
-                                <i class="fa-solid fa-desktop"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">${title}</h3>
-                        </div>
-                        <p class="leading-relaxed">Pour vous connecter depuis un émulateur PC :</p>
-                        <ul class="list-disc list-inside space-y-2 text-slate-300">
-                            <li>Générez un fichier d'identification en vous connectant via le formulaire de compte.</li>
-                            <li>Placez vos fichiers d'authentification dans le dossier de configuration de l'émulateur.</li>
-                            <li>Activez le mode réseau personnalisé Newtendo dans les options de l'émulateur.</li>
-                        </ul>
-                        <div class="pt-4">
-                            <button onclick="closeModal(); showToast('Information', 'Fichiers de configuration exportés.');" class="w-full py-3 rounded-xl bg-slate-800 text-white font-bold text-sm">Télécharger l'outil Config PC</button>
-                        </div>
-                    </div>
-                `;
-            }
-            modalContent.innerHTML = html;
-            modal.classList.remove('hidden');
-        }
+   <div class="glass-card p-6 rounded-2xl text-center">
+    <div class="w-16 h-16 mx-auto rounded-full gradient-brand flex items-center justify-center text-2xl font-extrabold mb-4">C</div>
+    <h3 class="font-bold">cedkeChat01</h3>
+    <p class="text-indigo-300 text-xs font-semibold mb-2">Owner</p>
+    <p class="text-slate-400 text-xs leading-relaxed">Chef et créateur du projet</p>
+   </div>
 
-        function handleAuthSubmit(e) {
-            e.preventDefault();
-            closeModal();
-            showToast('Connexion réussie', 'Bienvenue sur votre tableau de bord Newtendo Online.');
-        }
+   <div class="glass-card p-6 rounded-2xl text-center">
+    <div class="w-16 h-16 mx-auto rounded-full gradient-brand flex items-center justify-center text-2xl font-extrabold mb-4">X</div>
+    <h3 class="font-bold">Xdgamefr</h3>
+    <p class="text-indigo-300 text-xs font-semibold mb-2">Mentor/Owner</p>
+    <p class="text-slate-400 text-xs leading-relaxed">Chef et mentor du projet</p>
+   </div>
 
-        function showToast(title, msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-title').innerText = title;
-            document.getElementById('toast-msg').innerText = msg;
-            toast.classList.remove('translate-y-32');
-            setTimeout(() => {
-                toast.classList.add('translate-y-32');
-            }, 4000);
-        }
-    </script>
-</body>
-</html>
+  </div>
+ </div>
+</section>
+      
+
+<footer class="border-t border-newtendo-border pt-12 pb-10 mt-auto">
+ <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+  <p>© 2026 Newtendo Online Project. Projet communautaire non affilié à Nintendo Co., Ltd.</p>
+  <div class="flex gap-6"><a href="#statut" class="hover:text-indigo-400">Statut</a><a href="#teams" class="hover:text-indigo-400">Équipe</a></div>
+ </div>
+</footer>
+
+<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden" role="dialog" aria-modal="true">
+ <div class="glass-card p-8 rounded-3xl border border-indigo-500/30 max-w-lg w-full mx-4 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+  <button id="modal-close" aria-label="Fermer" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+  <div id="modal-content"></div>
+ </div>
+</div>
+<div id="toast" class="fixed bottom-6 right-6 z-50 translate-y-32 transition-transform duration-300 glass-card px-6 py-4 rounded-2xl shadow-2xl text-sm font-semibold" role="status"></div>
